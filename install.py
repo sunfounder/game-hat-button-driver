@@ -51,14 +51,16 @@ def install():
     print("Setup service")
     do(msg="copy service file",
         cmd='run_command("sudo cp ./gpio-joystick /etc/init.d/gpio-joystick")')
-    do(msg="add excutable mode for ezblock",
+    do(msg="add excutable mode for gpio-joystick",
         cmd='run_command("sudo chmod +x /etc/init.d/gpio-joystick")')
-    do(msg="update service settings for ezblock",
+    do(msg="update service settings for gpio-joystick",
         cmd='run_command("sudo update-rc.d gpio-joystick defaults")')
     do(msg="copy excutable",
         cmd='run_command("sudo cp ./gpio-joystick.py /usr/bin/gpio-joystick")')
-    do(msg="add excutable mode for ezblock-service",
+    do(msg="add excutable mode for gpio-joystick-service",
         cmd='run_command("sudo chmod +x /usr/bin/gpio-joystick")')
+    do(msg="reboot",
+        cmd='run_command("sudo reboot")')
 
     if len(errors) == 0:
         print("Finished")
