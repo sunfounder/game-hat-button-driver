@@ -59,11 +59,22 @@ def install():
         cmd='run_command("sudo cp ./gpio-joystick.py /usr/bin/gpio-joystick")')
     do(msg="add excutable mode for gpio-joystick-service",
         cmd='run_command("sudo chmod +x /usr/bin/gpio-joystick")')
-    do(msg="reboot",
-        cmd='run_command("sudo reboot")')
 
     if len(errors) == 0:
-        print("Finished")
+        while True:
+            yesno = input("Installation finished, do you want to reboot? (y/N) ")
+            yesno = str(yesno).lower()
+            if yesno == "y":
+                for i in range(5):
+                    print("Reboot in %s sec"%(5-i))
+                    time.sleep(1)
+                run_command("reboot")
+            elif yesno == "n":
+                print("Finished.")
+                break
+            else:
+                print('Input error, type "Y" to reboot, or "N" to cancel, try again.')
+                continue
     else:
         print("\n\nError happened in install process:")
         for error in errors:
