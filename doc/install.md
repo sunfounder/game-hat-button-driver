@@ -12,6 +12,29 @@ Review your selections and click 'Flash!' to begin writing data to the SD card.
 
 将SD卡和USB键盘接入到树莓派上，打开开关，启动树莓派，进入系统后按键盘的F4，进入终端。
 
+## Pi4
+目前Retro Pie 官方镜像 暂不支持Pi4， 需要手动安装测试版：
+### 安装树莓派镜像
+Install the latest version of Raspbian Buster on your Pi 4, if you haven’t already done so and boot into it. We recommend installing the lite version, which doesn't come with X Windows preloaded.
+[Download](https://www.raspberrypi.org/downloads/raspbian/)
+### 安装依赖:
+```bash
+    sudo apt-get update
+    sudo apt-get dist-upgrade
+    sudo apt-get install git
+```
+
+### 克隆`RetroPie-Setup`的Pi4测试版分支`fkms_rpi4`
+```bash
+    git clone -b fkms_rpi4 --depth=1 https://github.com/RetroPie/RetroPie-Setup
+```
+
+### 安装
+```bash
+    cd RetroPie-Setup
+    sudo ./retropie_setup.sh
+```
+
 ## 安装按键驱动
 树莓派进行联网，
 

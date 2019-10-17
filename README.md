@@ -17,7 +17,7 @@ This is a img with whole bunch of sensors and activaters, provided by SunFounder
 
 <a id="doc"></a>
 ### Doc:
-https://github.com/sunfounder-ezblock/ezb-pi/tree/master/doc
+[Installation Guide](doc/install.md)
 
 
 <a id="update"></a>
