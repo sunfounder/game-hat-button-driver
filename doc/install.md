@@ -10,30 +10,13 @@ Open balenaEtcher and select from your hard drive the Raspberry Pi .img or .zip 
 Select the SD card you wish to write your image to.
 Review your selections and click 'Flash!' to begin writing data to the SD card.
 
+打开SD卡的config.tex文件进行屏幕分辨率的配置，在文件的底部加入以下内容:
+hdmi_cvt=800 480 60 6
+hdmi_group=2
+hdmi_mode=87
+hdmi_drive=2
+
 将SD卡和USB键盘接入到树莓派上，打开开关，启动树莓派，进入系统后按键盘的F4，进入终端。
-
-## Pi4
-目前Retro Pie 官方镜像 暂不支持Pi4， 需要手动安装测试版：
-### 安装树莓派镜像
-Install the latest version of Raspbian Buster on your Pi 4, if you haven’t already done so and boot into it. We recommend installing the lite version, which doesn't come with X Windows preloaded.
-[Download](https://www.raspberrypi.org/downloads/raspbian/)
-### 安装依赖:
-```bash
-    sudo apt-get update
-    sudo apt-get dist-upgrade
-    sudo apt-get install git
-```
-
-### 克隆`RetroPie-Setup`的Pi4测试版分支`fkms_rpi4`
-```bash
-    git clone -b fkms_rpi4 --depth=1 https://github.com/RetroPie/RetroPie-Setup
-```
-
-### 安装
-```bash
-    cd RetroPie-Setup
-    sudo ./retropie_setup.sh
-```
 
 ## 安装按键驱动
 树莓派进行联网，
@@ -54,9 +37,7 @@ Installation finished, do you want to reboot? (y/N) Y
 
 ## 添加新游戏
 
-准备好相应的游戏ROMs，这里推荐一个非常酷的网站：http://coolrom.com/，你可以通过PC机，在里面下载各种游戏ROMs，点击Alternative download link进行下载
-
-在[retropie官网](https://retropie.org.uk/docs/Transferring-Roms/)查阅详细步骤
+准备好相应的游戏ROMs,在[retropie官网](https://retropie.org.uk/docs/Transferring-Roms/)查阅详细步骤
 
 
 

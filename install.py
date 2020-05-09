@@ -39,21 +39,21 @@ def install():
         do(msg="install RPi.GPIO",
             cmd='run_command("sudo pip3 install RPi.GPIO")')
 
-    print("Setup screen")
-    do(msg="enable HDMI force hotplug",
-        cmd='Config().set("hdmi_force_hotplug", "1")')
-    do(msg="set HDMI group",
-        cmd='Config().set("hdmi_group", "2")')
-    do(msg="set HDMI mode",
-        cmd='Config().set("hdmi_mode", "87")')
-    do(msg="set HDMI resolution",
-        cmd='Config().set("hdmi_cvt", "800 480 60 3 0 0 0")')
+    # print("Setup screen")
+    # do(msg="enable HDMI force hotplug",
+    #     cmd='Config().set("hdmi_drive", "2")')
+    # do(msg="set HDMI group",
+    #     cmd='Config().set("hdmi_group", "2")')
+    # do(msg="set HDMI mode",
+    #     cmd='Config().set("hdmi_mode", "87")')
+    # do(msg="set HDMI resolution",
+    #     cmd='Config().set("hdmi_cvt", "800 480 30 6 0 0 0")')
 
     print("Setup service")
     do(msg="copy service file",
         cmd='run_command("sudo cp ./gpio-joystick /etc/init.d/gpio-joystick")')
     do(msg="add excutable mode for gpio-joystick",
-        cmd='run_command("sudo chmod +x /etc/init.d/gpio-joystick")')
+        cmd='run_command("sudo chmod 777 /etc/init.d/gpio-joystick")')
     do(msg="update service settings for gpio-joystick",
         cmd='run_command("sudo update-rc.d gpio-joystick defaults")')
     do(msg="copy excutable",

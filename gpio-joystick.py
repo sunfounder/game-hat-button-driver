@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+import os
+os.system("sudo modprobe uinput")
 import uinput
 import RPi.GPIO as GPIO
-# import smbus
 import time
 
 DPAD_UP = 5
@@ -37,7 +38,12 @@ events = (
     uinput.ABS_RX + (0, 255, 0, 0),
     uinput.ABS_RZ + (0, 255, 0, 0),
 )
-device = uinput.Device(events, name="RasBoy")
+device = uinput.Device(events, name="Retro Game Hat")
+
+# class Test:
+#     def emit(self, *a):
+#         print(a)
+# device = Test()
 
 def create_cb(pin, key):
     def cb(ch):
@@ -89,4 +95,3 @@ GPIO.add_event_detect(SELECT, GPIO.BOTH, callback=SELECT_cb)
 
 while True:
     time.sleep(1)
-
